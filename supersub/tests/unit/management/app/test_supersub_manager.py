@@ -139,6 +139,18 @@ class SupersubManagerTest(TestCase):
         prods = self.manager._SupersubManager__get_session_prods(self.prod1)
         self.assertEqual(prods[0].id, 2)
 
+    def test__get_prods_no_a_with_prod_id(self):
+        prods = (
+            self.manager._SupersubManager__get_prods_no_a(self.prod3)
+        )
+        self.assertEqual(prods[2].id, 1)
+
+    def test__get_prods_a_with_prod_id(self):
+        prods = (
+            self.manager._SupersubManager__get_prods_a(self.prod2)
+        )
+        self.assertEqual(prods[0].id, 4)
+
     def test__get_session_prods_ids_with_prods_list(self):
         prods_ids = (
             self.manager

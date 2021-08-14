@@ -77,6 +77,25 @@ class ProductTest(TestCase):
             ' Pépites de céréales au chocolat',
             category_id=1
         )
+        Product.objects.create(
+            id=4,
+            id_origin='kermfdf',
+            name='Biscuit pomme noisette',
+            nutriscore_grade='A',
+            fat=17,
+            saturated_fat=1.5,
+            sugar=11,
+            salt=0.0,
+            image='https://static.openfoodfacts.org/images/products/730/'
+            '040/048/1588/front_fr.142.400.jpg',
+            url='https://fr.openfoodfacts.org/produit/7300400481588/'
+            'wasa-tartine-croustillante-fibres',
+            categories='Aliments et boissons à base de végétaux, Aliments d\''
+            'origine végétale, Snacks, Céréales et pommes de terre, Snacks'
+            ' sucrés, Petit-déjeuners, Céréales et dérivés, Biscuits et'
+            ' gâteaux, Céréales pour petit-déjeuner, Biscuits',
+            category_id=1
+        )
 
     def test_product_with_attr_id_origin(self):
         product_field = Product._meta.get_field('id_origin')

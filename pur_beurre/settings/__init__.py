@@ -18,15 +18,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'rop)15zwq47zi$dnm3$h&&6yr6h9f0tz*@m89_#ss0%tk=1zuo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = []
-
-if os.environ.get("APP_ENV") == 'prod':
-    DEBUG = False
-    ALLOWED_HOSTS = ['.herokuapps.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -78,10 +74,10 @@ WSGI_APPLICATION = 'pur_beurre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'purbeurre_p10',
+        'NAME': 'purbeurre',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

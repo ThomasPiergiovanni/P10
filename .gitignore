@@ -11,5 +11,7 @@ __pycache__/
 
 # Other unwanted file. to remove at the end
 .vscode
+pur_beurre/settings/production.py
+
 
 

@@ -7,7 +7,7 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 
 from authentication.tests.unit.models.test_custom_user import CustomUserTest
-
+from pur_beurre.custom_settings import *
 
 class SignInUseCaseTest(StaticLiveServerTestCase):
     """Sign in use case test class
@@ -15,9 +15,7 @@ class SignInUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Edge(
-            r'C:\Program Files\EdgeDriver\msedgedriver.exe'
-        )
+        cls.browser = webdriver.Edge(r'msedgedriver.exe')
         cls.browser.implicitly_wait(10)
         CustomUserTest.emulate_custom_user()
 

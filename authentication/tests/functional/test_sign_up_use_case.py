@@ -6,6 +6,7 @@ from time import sleep
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 
+from pur_beurre.custom_settings import *
 
 class SignUpUseCaseTest(StaticLiveServerTestCase):
     """Sign up use case test class
@@ -13,9 +14,7 @@ class SignUpUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Edge(
-            r'C:\Program Files\EdgeDriver\msedgedriver.exe'
-        )
+        cls.browser = webdriver.Edge(r'msedgedriver.exe')
         cls.browser.implicitly_wait(10)
 
     @classmethod

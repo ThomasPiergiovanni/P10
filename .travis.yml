@@ -11,7 +11,7 @@ services:
   - postgresql
 
 addons:
-  postgresql: "13.2"
+  postgresql: "13"
 
 script:
   - python manage.py test supersub/tests/unit/management/

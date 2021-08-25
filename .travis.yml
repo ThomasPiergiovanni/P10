@@ -12,7 +12,7 @@ services:
   - postgresql
 
 script:
-  - python manage.py test supersub/tests/unit/management/
+  - python manage.py test
 
 branches:
   only:

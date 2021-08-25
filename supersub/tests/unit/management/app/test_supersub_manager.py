@@ -165,7 +165,7 @@ class SupersubManagerTest(TestCase):
         )
         self.manager._add_vars_to_session(self.request_POST, self.prod1)
         self.assertEqual(self.request_POST.session['prod_id'], 1)
-        self.assertEqual(self.request_POST.session['prods_ids'], [2])
+        self.assertEqual(self.request_POST.session['prods_ids'], [2, 4])
 
     def test__delete_session_vars_with_none(self):
         setattr(

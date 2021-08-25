@@ -11,4 +11,4 @@ services:
   - postgresql
 
 script:
-  - python manage.py test supersub/tests/unit/
+  - python manage.py test supersub/tests/unit/management/

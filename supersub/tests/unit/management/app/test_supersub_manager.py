@@ -135,6 +135,10 @@ class SupersubManagerTest(TestCase):
             page[0].name,
             'Wasa tartine croustillante fibres - 230 g'
         )
+        self.assertEqual(
+            page[1].name,
+            'Biscuit pomme noisette'
+        )
 
     def test__get_session_prods_with_prod_id(self):
         prods = self.manager._SupersubManager__get_session_prods(self.prod1)

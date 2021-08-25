@@ -87,7 +87,7 @@ class SupersubManager():
             Product.objects.filter(category_id=product.category_id)
             .filter(nutriscore_grade__lte=product.nutriscore_grade)
             .exclude(id__exact=product.id)
-            .order_by('id').order_by('nutriscore_grade')[:60]
+            .order_by('nutriscore_grade', 'id')[:60]
         )
 
     def __get_prods_no_a(self, product):
@@ -98,7 +98,7 @@ class SupersubManager():
             Product.objects.filter(category_id=product.category_id)
             .filter(nutriscore_grade__lte=product.nutriscore_grade)
             .exclude(nutriscore_grade__exact=product.nutriscore_grade)
-            .order_by('id').order_by('nutriscore_grade')[:60]
+           .order_by('nutriscore_grade', 'id')[:60]
         )
 
     def _add_vars_to_session(self, request, match_prod):

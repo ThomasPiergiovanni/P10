@@ -27,6 +27,7 @@ class SignInUseCaseTest(StaticLiveServerTestCase):
         #cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver.exe')
         cls.browser = webdriver.Firefox(
             executable_path=str('/usr/local/bin/geckodriver.exe'),
+        )
         cls.browser.implicitly_wait(30)
         CustomUserTest.emulate_custom_user()
 

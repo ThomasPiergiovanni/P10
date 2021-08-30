@@ -14,7 +14,7 @@ class SignUpUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Edge(r'msedgedriver.exe')
+        cls.browser = webdriver.Edge(r'/home/travis/build/ThomasPiergiovanni/P10/msedgedriver.exe')
         cls.browser.implicitly_wait(10)
 
     @classmethod

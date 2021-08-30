@@ -6,7 +6,7 @@ before_script:
   - pip install -r requirements.txt
   - wget https://msedgedriver.azureedge.net/93.0.961.33/edgedriver_win64.zip
   - unzip edgedriver_win64.zip
-  - sudo mv msedgedriver /usr/local/bin
+  - sudo mv msedgedriver.exe /usr/local/bin
   - psql -c 'create database purbeurre;' -U postgres
 
 env: DJANGO_SETTINGS_MODULE="pur_beurre.settings.travis"

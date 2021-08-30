@@ -17,7 +17,7 @@ class SearchProductUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver')
+        cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver.exe')
         cls.browser.implicitly_wait(10)
         CategoryTest().emulate_category()
         ProductTest().emulate_product()

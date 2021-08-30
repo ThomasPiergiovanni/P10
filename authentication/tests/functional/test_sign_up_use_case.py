@@ -17,10 +17,10 @@ class SignUpUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Firefox(
-            executable_path=str('D:\99_temp\geckodriver-v0.29.1-win64\geckodriver.exe'),
+        #cls.browser = webdriver.Firefox(
+        #    executable_path=str('D:\99_temp\geckodriver-v0.29.1-win64\geckodriver.exe'),
             #options=firefox_options,
-        )
+        #)
         #cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver.exe')
         cls.browser = webdriver.Firefox(
             executable_path=str('/usr/local/bin/geckodriver.exe'),

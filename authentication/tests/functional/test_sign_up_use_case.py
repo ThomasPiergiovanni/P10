@@ -27,7 +27,6 @@ class SignUpUseCaseTest(StaticLiveServerTestCase):
             options=firefox_options,
         )
         cls.browser.implicitly_wait(30)
-        CustomUserTest.emulate_custom_user()
 
     @classmethod
     def tearDownClass(cls):

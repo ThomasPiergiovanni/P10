@@ -9,8 +9,8 @@ from selenium import webdriver
 from authentication.tests.unit.models.test_custom_user import CustomUserTest
 # from pur_beurre.custom_settings import *
 
-# firefox_options = webdriver.FirefoxOptions()
-# firefox_options.headless = True
+firefox_options = webdriver.FirefoxOptions()
+firefox_options.headless = True
 
 class SignInUseCaseTest(StaticLiveServerTestCase):
     """Sign in use case test class

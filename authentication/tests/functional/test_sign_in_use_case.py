@@ -1,6 +1,8 @@
 # pylint: disable=C0116
 """Test module for sign in use case functional test
 """
+import os
+
 from time import sleep
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -12,24 +14,25 @@ from authentication.tests.unit.models.test_custom_user import CustomUserTest
 firefox_options = webdriver.FirefoxOptions()
 firefox_options.headless = True
 
+
 class SignInUseCaseTest(StaticLiveServerTestCase):
     """Sign in use case test class
     """
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # cls.browser = webdriver.Firefox(executable_path='D:\\99_temp\\geckodriver-v0.29.1-win64')
-
-        #cls.browser = webdriver.Firefox(
-        #    executable_path=str('D:\99_temp\geckodriver-v0.29.1-win64\geckodriver.exe'),
-            #options=firefox_options,
-        #)
-        #cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver.exe')
-        cls.browser = webdriver.Firefox(
-            executable_path=str('/usr/local/bin/geckodriver'),
-            options=firefox_options,
-        )
-        cls.browser.implicitly_wait(30)
+        if os.name == 'nt':
+            firefox_options.headless = False
+            cls.browser = webdriver.Firefox(
+                executable_path=str(r'D:\02_oc\10_p10\pur_beurre\custom_settings\geckodriver.exe'),
+                options=firefox_options,
+            )
+        if os.name =='posix':
+            cls.browser = webdriver.Firefox(
+                executable_path=str('/usr/local/bin/geckodriver'),
+                options=firefox_options,
+            )
+        cls.browser.implicitly_wait(10)
         CustomUserTest.emulate_custom_user()
 
     @classmethod

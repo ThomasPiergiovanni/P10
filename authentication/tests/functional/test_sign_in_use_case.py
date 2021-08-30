@@ -16,7 +16,7 @@ class SignInUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Edge(r'/home/travis/build/ThomasPiergiovanni/P10/msedgedriver.exe')
+        cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver/msedgedriver.exe')
         cls.browser.implicitly_wait(10)
         CustomUserTest.emulate_custom_user()
 

@@ -6,7 +6,7 @@ from time import sleep
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 
-from pur_beurre.custom_settings import *
+# from pur_beurre.custom_settings import *
 
 class SignUpUseCaseTest(StaticLiveServerTestCase):
     """Sign up use case test class

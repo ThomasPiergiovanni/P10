@@ -1,6 +1,8 @@
 # pylint: disable=C0116
 """Test search product use case test module. Functional test
 """
+import os
+
 from time import sleep
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -17,8 +19,20 @@ class SearchProductUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver.exe')
-        cls.browser.implicitly_wait(10)
+        firefox_options = webdriver.FirefoxOptions()
+        if os.name == 'nt':
+            firefox_options.headless = False
+            cls.browser = webdriver.Firefox(
+                executable_path=str(r'D:\02_oc\10_p10\pur_beurre\custom_settings\geckodriver.exe'),
+                options=firefox_options,
+            )
+        if os.name =='posix':
+            firefox_options.headless = True
+            cls.browser = webdriver.Firefox(
+                executable_path=str('/usr/local/bin/geckodriver'),
+                options=firefox_options,
+            )
+        cls.browser.implicitly_wait(30)
         CategoryTest().emulate_category()
         ProductTest().emulate_product()
 

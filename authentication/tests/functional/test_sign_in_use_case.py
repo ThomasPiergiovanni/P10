@@ -9,10 +9,6 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 
 from authentication.tests.unit.models.test_custom_user import CustomUserTest
-# from pur_beurre.custom_settings import *
-
-firefox_options = webdriver.FirefoxOptions()
-firefox_options.headless = True
 
 
 class SignInUseCaseTest(StaticLiveServerTestCase):
@@ -21,6 +17,7 @@ class SignInUseCaseTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        firefox_options = webdriver.FirefoxOptions()
         if os.name == 'nt':
             firefox_options.headless = False
             cls.browser = webdriver.Firefox(

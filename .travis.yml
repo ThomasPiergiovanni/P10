@@ -15,7 +15,7 @@ services:
   - postgresql
 
 script:
-  - python manage.py test authentication/tests/functional
+  - python manage.py test
 
 branches:
   only:

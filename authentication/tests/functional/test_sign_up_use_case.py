@@ -9,15 +9,13 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 
 
-firefox_options = webdriver.FirefoxOptions()
-
-
 class SignUpUseCaseTest(StaticLiveServerTestCase):
     """Sign up use case test class
     """
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        firefox_options = webdriver.FirefoxOptions()
         if os.name == 'nt':
             firefox_options.headless = False
             cls.browser = webdriver.Firefox(

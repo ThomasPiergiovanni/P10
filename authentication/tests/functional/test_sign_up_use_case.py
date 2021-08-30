@@ -30,7 +30,7 @@ class SignUpUseCaseTest(StaticLiveServerTestCase):
                 executable_path=str('/usr/local/bin/geckodriver'),
                 options=firefox_options,
             )
-        cls.browser.implicitly_wait(10)
+        cls.browser.implicitly_wait(30)
 
     @classmethod
     def tearDownClass(cls):

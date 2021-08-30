@@ -8,14 +8,24 @@ from selenium import webdriver
 
 # from pur_beurre.custom_settings import *
 
+firefox_options = webdriver.FirefoxOptions()
+firefox_options.headless = True
+
 class SignUpUseCaseTest(StaticLiveServerTestCase):
     """Sign up use case test class
     """
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver.exe')
-        cls.browser.implicitly_wait(10)
+        cls.browser = webdriver.Firefox(
+            executable_path=str('D:\99_temp\geckodriver-v0.29.1-win64\geckodriver.exe'),
+            #options=firefox_options,
+        )
+        #cls.browser = webdriver.Edge(r'/usr/local/bin/msedgedriver.exe')
+        cls.browser = webdriver.Firefox(
+            executable_path=str('/usr/local/bin/geckodriver.exe'),
+        cls.browser.implicitly_wait(30)
+        CustomUserTest.emulate_custom_user()
 
     @classmethod
     def tearDownClass(cls):

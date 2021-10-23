@@ -34,7 +34,6 @@ class Command(BaseCommand):
         self.__drop_categories()
         self.__drop_products()
         self.__drop_favorites()
-        self.off_api_manager.download_categories()
         self.off_api_manager.filter_categories()
         self.__insert_categories()
         self.__get_categories()

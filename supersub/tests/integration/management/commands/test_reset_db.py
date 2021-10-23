@@ -1,11 +1,8 @@
 # pylint: disable=C0116, E1101, W0212
-"""Test reset DB module
+"""Test reset DB module. Integration test
 """
 from django.test import TestCase
 
-from pur_beurre.custom_settings.tests_variables import (
-    OFF_API_FILTERED_PRODUCTS, OFF_API_FILTERED_CATEGORIES
-)
 from supersub.management.commands.reset_db import Command
 from supersub.models.category import Category
 from supersub.models.product import Product

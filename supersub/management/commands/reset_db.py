@@ -31,6 +31,8 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        """Method that reset db. Options are provided by Command arguments.
+        """
         self.__drop_categories()
         self.__drop_products()
         self.__drop_favorites()

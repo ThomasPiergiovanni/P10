@@ -66,7 +66,7 @@ class CommandTest(TestCase):
     def test_insert_categories_with_category(self):
         self.db_manager.off_api_manager.categories = self.categories
         self.db_manager._Command__insert_categories()
-        category = Category.objects.order_by('id')[0]
+        category = Category.objects.get(pk=1)
         self.assertEqual(category.name, "Snacks")
 
     def test_drop_products_with_products(self):
@@ -83,7 +83,7 @@ class CommandTest(TestCase):
         self.db_manager._Command__insert_products(
             self.db_manager.categories_in_db[0]
         )
-        product = Product.objects.order_by('id')[1]
+        product = Product.objects.get(pk=2)
         self.assertEqual(product.name, "Prince Chocolat 2")
 
     def test_drop_favorites_with_favorites(self):

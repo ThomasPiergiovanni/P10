@@ -1,6 +1,7 @@
 """Products module model
 """
 from django.db import models
+from django.db.models import Avg
 
 from authentication.models import CustomUser
 from supersub.models.category import Category
@@ -24,3 +25,10 @@ class Product(models.Model):
     relation_custom_user = models.ManyToManyField(
         CustomUser, through='Favorites'
     )
+
+    def product_rating(self):
+        avg_rating = self.ratings_set.all().aggregate(Avg('rate'))
+        avg_rating = avg_rating['rate__avg']
+        if avg_rating:
+            avg_rating =int(avg_rating)
+        return avg_rating

@@ -56,7 +56,11 @@ class RatingsTest(TestCase):
             type(models.ForeignKey(CustomUser, models.CASCADE))
         )
 
-    def test_rating_with_attr_rate(self):
+    def test_ratings_with_attr_rate(self):
         ratings_field = Ratings._meta.get_field('rate')
         self.assertTrue(ratings_field)
         self.assertEqual(type(ratings_field), type(models.IntegerField()))
+
+    def test_ratings_with_product(self):
+        product = Product.objects.get(pk=1)
+        self.assertEqual(product.product_rating(), int(2.5))

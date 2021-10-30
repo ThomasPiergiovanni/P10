@@ -22,6 +22,12 @@ class CustomUserTest(TestCase):
             password='_Xxxxxxx',
             first_name='tester'
         )
+        CustomUser.objects.create_user(
+            id=2,
+            email='testuser2@email.com',
+            password='_Yxxxxxx',
+            first_name='tester2'
+        )
 
     def test_custom_user_with_attr_username(self):
         user_field = CustomUser._meta.get_field('email')

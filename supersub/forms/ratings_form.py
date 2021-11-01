@@ -8,11 +8,11 @@ class RatingsForm(forms.Form):
     """
     choices_list = [
         (None, ""),
-        (1, "Une étoile"),
-        (2, "Deux étoiles"),
-        (3, "Trois étoiles"),
-        (4, "Quatre étoiles"),
-        (5, "Cinq étoiles")
+        (1, "Très mauvais (une étoile)"),
+        (2, "Mauvais (deux étoiles)"),
+        (3, "Moyen (trois étoiles)"),
+        (4, "Bon (quatre étoiles)"),
+        (5, "Très bon (cinq étoiles)")
     ]
     ratings = forms.IntegerField(
         label="Note le produit:",

@@ -175,3 +175,12 @@ class SupersubManager():
             )
         except Exception:
             return None
+
+    def _save_rating(self, id_prod, id_user, form_value):
+        """Method that saves Ratings object from DB.
+        """
+        Ratings(
+            product_id=id_prod,
+            custom_user_id=id_user,
+            rate=form_value
+        ).save()

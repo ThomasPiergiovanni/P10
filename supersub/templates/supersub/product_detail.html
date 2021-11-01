@@ -94,7 +94,6 @@
                         </div>
                     </div>
                     {% if user.is_authenticated %}
-                        {% csrf_token %}
                         {% if user_product_rating %}
                             <p class="h5 mt-5">Avis de {{user.email}}</p>
                             <div class="row">
@@ -145,10 +144,11 @@
                             </div>
                         {% else %}
                             <p class="h5 mt-5">Donner votre avis</p>
-                            <form id="result_ratings_form" action="" method="post" novalidate></form>
-                            <div class="row">
+                            <form id="result_ratings_form" action="{% url 'supersub:register_rating' id_prod=prod.id%}" method="post" novalidate>
+                            {% csrf_token %}
+                                <div class="row">
                                 <div class="col-2"></div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     {{ ratings_form.ratings}}
                                 </div>
                                 <div class="col-2"><button type="submit" id="rate_button" class=" btn btn-primary">Envoyer</button></div>

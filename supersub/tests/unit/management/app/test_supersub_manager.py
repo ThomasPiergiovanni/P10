@@ -227,7 +227,8 @@ class SupersubManagerTest(TestCase):
         user_rating = self.manager._get_user_product_rating(1,1)
         rating = Ratings.objects.filter(
             product_id__exact=1,
-            custom_user_id__exact=1)
+            custom_user_id__exact=1
+        )
         self.assertEqual(
             rating[0].product_id,
             user_rating.product_id
@@ -239,3 +240,11 @@ class SupersubManagerTest(TestCase):
     def test_get_user_product_rating_with_none_ratings(self):
         user_rating = self.manager._get_user_product_rating(2,2)
         self.assertIsNone(user_rating)
+    
+    def test_save_rating_with_exiting_rating(self):
+        self.manager._save_rating(2,2,5)
+        rating = Ratings.objects.get(
+            product_id__exact=2,
+            custom_user_id__exact=2
+        )
+        self.assertEqual(rating.rate, 5)

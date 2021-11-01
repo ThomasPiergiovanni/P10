@@ -7,6 +7,7 @@ from supersub.forms.main_search_form import MainSearchForm
 from supersub.forms.navbar_search_form import NavbarSearchForm
 from supersub.models.favorites import Favorites
 from supersub.models.product import Product
+from supersub.models.ratings import Ratings
 
 
 class SupersubManager():
@@ -76,8 +77,7 @@ class SupersubManager():
         """
         if product.nutriscore_grade in 'a':
             return self.__get_prods_a(product)
-        else:
-            return self.__get_prods_no_a(product)
+        return self.__get_prods_no_a(product)
 
     def __get_prods_a(self, product):
         """Method that gets products when the selected product is from
@@ -98,7 +98,7 @@ class SupersubManager():
             Product.objects.filter(category_id=product.category_id)
             .filter(nutriscore_grade__lte=product.nutriscore_grade)
             .exclude(nutriscore_grade__exact=product.nutriscore_grade)
-           .order_by('nutriscore_grade', 'id')[:60]
+            .order_by('nutriscore_grade', 'id')[:60]
         )
 
     def _add_vars_to_session(self, request, match_prod):
@@ -162,4 +162,24 @@ class SupersubManager():
         Favorites(
             product_id=id_prod,
             custom_user_id=id_user
+        ).save()
+
+    def _get_user_product_rating(self, id_prod, id_user):
+        """Method that get user product rating from DB.
+        """
+        try:
+            return Ratings.objects.get(
+                product_id__exact=id_prod,
+                custom_user_id__exact=id_user
+            )
+        except Exception:
+            return None
+
+    def _save_rating(self, id_prod, id_user, form_value):
+        """Method that saves Ratings object from DB.
+        """
+        Ratings(
+            product_id=id_prod,
+            custom_user_id=id_user,
+            rate=form_value
         ).save()

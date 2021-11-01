@@ -33,6 +33,129 @@
                     <ul class="list-group mt-4">
                         <li class="list-group h4 text-uppercase"> {{ prod.nutriscore_grade }} </li>
                     </ul>
+                    <p class="h5 mt-5">Avis des internautes</p>
+                    <div class="row">
+                        <div class="col-12">
+                            {% if prod.product_rating == 1 %}
+                            <div>
+                                <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_two' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_three' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_four' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                (nombre d'avis: {{ prod.product_count }})
+                            </div>
+                            {% elif prod.product_rating == 2 %}
+                            <div>
+                                <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_three' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_four' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                (nombre d'avis: {{ prod.product_count }})
+                            </div>
+                            {% elif prod.product_rating == 3 %}
+                            <div>
+                                <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_three' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_four' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                (nombre d'avis: {{ prod.product_count }})
+                            </div>
+                            {% elif prod.product_rating == 4 %}
+                            <div>
+                                <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_three' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_four' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                (nombre d'avis: {{ prod.product_count }})
+                            </div>
+                            {% elif prod.product_rating == 5 %}
+                            <div>
+                                <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_three' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_four' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                <i id='star_five' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                (nombre d'avis: {{ prod.product_count }})
+                            </div>
+                            {% else %}
+                            <div>
+                                <i id="star_one" class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_two' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_three' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_four' class="fa fa-star" aria-hidden="true"></i>
+                                <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                (nombre d'avis: {{ prod.product_count }})
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if user.is_authenticated %}
+                        {% if user_product_rating %}
+                            <p class="h5 mt-5">Avis de {{user.email}}</p>
+                            <div class="row">
+                                <div class="col-12">
+                                    {% if user_product_rating.rate == 1 %}
+                                    <div>
+                                        <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_two' class="fa fa-star" aria-hidden="true"></i>
+                                        <i id='star_three' class="fa fa-star" aria-hidden="true"></i>
+                                        <i id='star_four' class="fa fa-star" aria-hidden="true"></i>
+                                        <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    {% elif user_product_rating.rate == 2 %}
+                                    <div>
+                                        <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_three' class="fa fa-star" aria-hidden="true"></i>
+                                        <i id='star_four' class="fa fa-star" aria-hidden="true"></i>
+                                        <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    {% elif user_product_rating.rate == 3 %}
+                                    <div>
+                                        <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_three' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_four' class="fa fa-star" aria-hidden="true"></i>
+                                        <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    {% elif user_product_rating.rate == 4 %}
+                                    <div>
+                                        <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_three' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_four' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_five' class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    {% elif user_product_rating.rate == 5 %}
+                                    <div>
+                                        <i id='star_one' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_two' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_three' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_four' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                        <i id='star_five' class="fa fa-star text-primary" aria-hidden="true"></i>
+                                    </div>
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% else %}
+                            <p class="h5 mt-5">Donner votre avis</p>
+                            <form id="result_ratings_form" action="{% url 'supersub:register_rating' id_prod=prod.id%}" method="post" novalidate>
+                            {% csrf_token %}
+                                <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-7">
+                                    {{ ratings_form.ratings}}
+                                </div>
+                                <div class="col-2"><button type="submit" id="rate_button" class=" btn btn-primary">Envoyer</button></div>
+                            </div>
+                            </form>
+                        {% endif %}
+                    {% endif %}
                 </div>
                 <div class="col-md-6 text-center">
                         <p class="h5 m-2">Repères nutritionnels pour 100g</p>
@@ -45,7 +168,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col pt-5 text-center">
+                <div class="col pt-5 mt-5 text-center">
                     <form action='{{ prod.url }}'>
                         <button type="submit" id="off_aliment" class="btn btn-primary">Voir la fiche d'OpenFoodFacts</button>
                     </form>

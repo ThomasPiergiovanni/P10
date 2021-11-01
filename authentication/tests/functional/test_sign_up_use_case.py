@@ -19,10 +19,13 @@ class SignUpUseCaseTest(StaticLiveServerTestCase):
         if os.name == 'nt':
             firefox_options.headless = False
             cls.browser = webdriver.Firefox(
-                executable_path=str(r'D:\02_oc\10_p10\pur_beurre\custom_settings\geckodriver.exe'),
+                executable_path=str(
+                    r'D:\02_oc\10_p10\pur_beurre'
+                    r'\custom_settings\geckodriver.exe'
+                ),
                 options=firefox_options,
             )
-        if os.name =='posix':
+        if os.name == 'posix':
             firefox_options.headless = True
             cls.browser = webdriver.Firefox(
                 executable_path=str('/usr/local/bin/geckodriver'),

@@ -8,7 +8,6 @@ from authentication.tests.unit.models.test_custom_user import (
 )
 from supersub.models.ratings import Ratings
 from supersub.tests.unit.models.test_category import CategoryTest
-from supersub.tests.unit.models.test_favorites import FavoritesTest
 from supersub.tests.unit.models.test_product import ProductTest
 from supersub.tests.unit.models.test_ratings import RatingsTest
 
@@ -35,7 +34,7 @@ class RegisterRatingViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_post_with_rating_saved(self):
-        response = self.client.post(
+        self.client.post(
             '/register_rating/4',
             data={'ratings': 5},
             follow=True

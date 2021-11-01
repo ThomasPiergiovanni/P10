@@ -20,7 +20,7 @@ class ProductDetailView(CustomView):
         self._data['ctxt']['prod'] = self._get_product(id_prod)
         self._data['ctxt']['ratings_form'] = RatingsForm()
         self._data['ctxt']['user'] = request.user
-        self._data['ctxt']['user_product_rating'] = self._get_user_product_rating(
-            id_prod, request.user
+        self._data['ctxt']['user_product_rating'] = (
+            self._get_user_product_rating(id_prod, request.user)
         )
         return render(request, self._data['render'], self._data['ctxt'])

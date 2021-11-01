@@ -77,8 +77,7 @@ class SupersubManager():
         """
         if product.nutriscore_grade in 'a':
             return self.__get_prods_a(product)
-        else:
-            return self.__get_prods_no_a(product)
+        return self.__get_prods_no_a(product)
 
     def __get_prods_a(self, product):
         """Method that gets products when the selected product is from
@@ -99,7 +98,7 @@ class SupersubManager():
             Product.objects.filter(category_id=product.category_id)
             .filter(nutriscore_grade__lte=product.nutriscore_grade)
             .exclude(nutriscore_grade__exact=product.nutriscore_grade)
-           .order_by('nutriscore_grade', 'id')[:60]
+            .order_by('nutriscore_grade', 'id')[:60]
         )
 
     def _add_vars_to_session(self, request, match_prod):

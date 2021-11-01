@@ -1,7 +1,6 @@
 # pylint: disable=W0212
 """Register rating view module.
 """
-from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 

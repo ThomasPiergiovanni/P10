@@ -1,11 +1,11 @@
+# pylint: disable=E1101
 """Products module model
 """
 from django.db import models
-from django.db.models import Avg, Count
+from django.db.models import Avg
 
 from authentication.models import CustomUser
 from supersub.models.category import Category
-
 
 
 class Product(models.Model):
@@ -28,13 +28,19 @@ class Product(models.Model):
     )
 
     def product_rating(self):
+        """ product rating method. Method returns the average ratings for
+        the product. It uses its relation with Ratings model.
+        """
         avg_rating = self.ratings_set.all().aggregate(Avg('rate'))
         avg_rating = avg_rating['rate__avg']
         if avg_rating:
-            avg_rating =int(avg_rating)
+            avg_rating = int(avg_rating)
         return avg_rating
 
     def product_count(self):
+        """ Product count method. Method returns the number of rating for
+        the product. It uses its relation with Ratings model.
+        """
         product_count = Product.objects.filter(
             ratings__product_id=self.id
         ).count()

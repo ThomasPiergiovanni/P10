@@ -21,6 +21,6 @@ class RatingsForm(forms.Form):
                 'class': 'form-control',
                 'id': 'rating_form_attr'
             },
-            choices = choices_list,
+            choices=choices_list,
         )
     )

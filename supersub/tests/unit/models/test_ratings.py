@@ -1,4 +1,4 @@
-# pylint: disable=E1101, C0116, W0212
+# pylint: disable=E1101, C0116, W0212, R0801
 """Test Ratings module.
 """
 from django.db import models
@@ -36,7 +36,8 @@ class RatingsTest(TestCase):
 
     def test_str_with_product_name(self):
         ratings = Ratings.objects.get(pk=1)
-        self.assertEqual(ratings.__str__(), 
+        self.assertEqual(
+            ratings.__str__(),
             'Pain 100% mie nature PT - Harrys - 500 g'
         )
 
@@ -64,7 +65,7 @@ class RatingsTest(TestCase):
     def test_prodcut_ratings_with_product(self):
         product = Product.objects.get(pk=1)
         self.assertEqual(product.product_rating(), int(2.5))
-    
+
     def test_prodcut_count_with_product(self):
         product = Product.objects.get(pk=1)
-        self.assertEqual(product.product_count(),2)
+        self.assertEqual(product.product_count(), 2)

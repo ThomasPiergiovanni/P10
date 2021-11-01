@@ -224,7 +224,7 @@ class SupersubManagerTest(TestCase):
         self.assertTrue(favorite, type(Favorites()))
 
     def test_get_user_product_rating_with_emulated_ratings(self):
-        user_rating = self.manager._get_user_product_rating(1,1)
+        user_rating = self.manager._get_user_product_rating(1, 1)
         rating = Ratings.objects.filter(
             product_id__exact=1,
             custom_user_id__exact=1
@@ -237,12 +237,13 @@ class SupersubManagerTest(TestCase):
             rating[0].custom_user_id,
             user_rating.custom_user_id
         )
+
     def test_get_user_product_rating_with_none_ratings(self):
-        user_rating = self.manager._get_user_product_rating(2,2)
+        user_rating = self.manager._get_user_product_rating(2, 2)
         self.assertIsNone(user_rating)
-    
+
     def test_save_rating_with_exiting_rating(self):
-        self.manager._save_rating(2,2,5)
+        self.manager._save_rating(2, 2, 5)
         rating = Ratings.objects.get(
             product_id__exact=2,
             custom_user_id__exact=2

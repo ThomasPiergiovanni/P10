@@ -10,7 +10,7 @@ from supersub.models.product import Product
 
 class Ratings(models.Model):
     """Ratings class model. Composed of Custom User and Product classes
-    foreign keys
+    foreign keys.
     """
     custom_user = models.ForeignKey(CustomUser, models.CASCADE)
     product = models.ForeignKey(Product, models.CASCADE)

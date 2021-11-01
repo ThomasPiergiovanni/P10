@@ -1,4 +1,4 @@
-# pylint: disable=C0116
+# pylint: disable=C0116, W0611
 """Test search product use case test module. Functional test
 """
 import os
@@ -8,9 +8,9 @@ from time import sleep
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 
-from pur_beurre.custom_settings import *
 from supersub.tests.unit.models.test_category import CategoryTest
 from supersub.tests.unit.models.test_product import ProductTest
+from supersub.tests.unit.models.test_favorites import FavoritesTest
 
 
 class SearchProductUseCaseTest(StaticLiveServerTestCase):
@@ -23,10 +23,13 @@ class SearchProductUseCaseTest(StaticLiveServerTestCase):
         if os.name == 'nt':
             firefox_options.headless = False
             cls.browser = webdriver.Firefox(
-                executable_path=str(r'D:\02_oc\10_p10\pur_beurre\custom_settings\geckodriver.exe'),
+                executable_path=str(
+                    r'D:\02_oc\10_p10\pur_beurre'
+                    r'\custom_settings\geckodriver.exe'
+                ),
                 options=firefox_options,
             )
-        if os.name =='posix':
+        if os.name == 'posix':
             firefox_options.headless = True
             cls.browser = webdriver.Firefox(
                 executable_path=str('/usr/local/bin/geckodriver'),

@@ -4,6 +4,7 @@
 from django.test import TestCase
 
 from supersub.forms.navbar_search_form import NavbarSearchForm
+from supersub.forms.ratings_form import RatingsForm
 from supersub.models.product import Product
 from supersub.tests.unit.models.test_category import CategoryTest
 from supersub.tests.unit.models.test_product import ProductTest
@@ -35,3 +36,9 @@ class ProductDetailViewTest(TestCase):
     def test_get_with_product(self):
         product = Product.objects.get(pk=1)
         self.assertEqual(self.response.context['prod'], product)
+
+    def test_get_with_ratings_form(self):
+        self.assertIsInstance(
+            self.response.context['ratings_form'],
+            RatingsForm
+        )

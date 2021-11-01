@@ -61,6 +61,6 @@ class RatingsTest(TestCase):
         self.assertTrue(ratings_field)
         self.assertEqual(type(ratings_field), type(models.IntegerField()))
 
-    def test_ratings_with_product(self):
+    def test_prodcut_ratings_with_product(self):
         product = Product.objects.get(pk=1)
         self.assertEqual(product.product_rating(), int(2.5))

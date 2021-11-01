@@ -164,3 +164,14 @@ class SupersubManager():
             product_id=id_prod,
             custom_user_id=id_user
         ).save()
+
+    def _get_user_product_rating(self, id_prod, id_user):
+        """Method that get user product rating from DB.
+        """
+        try:
+            return Ratings.objects.get(
+                product_id__exact=id_prod,
+                custom_user_id__exact=id_user
+            )
+        except Exception:
+            return None

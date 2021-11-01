@@ -12,9 +12,11 @@ from supersub.forms.navbar_search_form import NavbarSearchForm
 from supersub.management.app.supersub_manager import SupersubManager
 from supersub.models.favorites import Favorites
 from supersub.models.product import Product
+from supersub.models.ratings import Ratings
 from supersub.tests.unit.models.test_category import CategoryTest
 from supersub.tests.unit.models.test_favorites import FavoritesTest
 from supersub.tests.unit.models.test_product import ProductTest
+from supersub.tests.unit.models.test_ratings import RatingsTest
 
 
 class SupersubManagerTest(TestCase):
@@ -26,6 +28,7 @@ class SupersubManagerTest(TestCase):
         CategoryTest.emulate_category()
         ProductTest.emulate_product()
         CustomUserTest.emulate_custom_user()
+        RatingsTest.emulate_ratings()
         cls.prod1 = Product.objects.get(pk=1)
         cls.prod2 = Product.objects.get(pk=2)
         cls.prod3 = Product.objects.get(pk=3)
@@ -219,3 +222,20 @@ class SupersubManagerTest(TestCase):
         self.manager._save_favorite(3, 1)
         favorite = Favorites.objects.get(product_id__exact=3)
         self.assertTrue(favorite, type(Favorites()))
+
+    def test_get_user_product_rating_with_emulated_ratings(self):
+        user_rating = self.manager._get_user_product_rating(1,1)
+        rating = Ratings.objects.filter(
+            product_id__exact=1,
+            custom_user_id__exact=1)
+        self.assertEqual(
+            rating[0].product_id,
+            user_rating.product_id
+        )
+        self.assertEqual(
+            rating[0].custom_user_id,
+            user_rating.custom_user_id
+        )
+    def test_get_user_product_rating_with_none_ratings(self):
+        user_rating = self.manager._get_user_product_rating(2,2)
+        self.assertIsNone(user_rating)

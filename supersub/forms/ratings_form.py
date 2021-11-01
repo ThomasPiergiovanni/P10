@@ -8,7 +8,7 @@ class RatingsForm(forms.Form):
     """
     choices_list = [
         (None, ""),
-        (1, "Une étoiles"),
+        (1, "Une étoile"),
         (2, "Deux étoiles"),
         (3, "Trois étoiles"),
         (4, "Quatre étoiles"),

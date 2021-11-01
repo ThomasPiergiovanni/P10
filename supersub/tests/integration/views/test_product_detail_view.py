@@ -42,3 +42,9 @@ class ProductDetailViewTest(TestCase):
             self.response.context['ratings_form'],
             RatingsForm
         )
+
+    def test_get_with_ratings(self):
+        self.assertIsInstance(
+            self.response.context['user_product_rating'],
+            Ratings
+        )

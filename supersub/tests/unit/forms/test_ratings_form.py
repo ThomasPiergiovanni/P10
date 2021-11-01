@@ -12,6 +12,7 @@ class RatingsTest(TestCase):
     def setUp(self):
         self.ratings_form = RatingsForm()
         self.choices_list = [
+            (None, ""),
             (1, "Une étoile"),
             (2, "Deux étoiles"),
             (3, "Trois étoiles"),
@@ -25,15 +26,15 @@ class RatingsTest(TestCase):
         )
 
     def test_ratingsform_with_attr_ratings_class(self):
-        self.assertTrue(
+        self.assertEqual(
             self.ratings_form.fields['ratings']
-            .widget.attrs['choices'] == self.choices_list
+            .widget.choices, self.choices_list
         )
 
     def test_ratingsform_with_attr_rating_id(self):
-        self.assertTrue(
+        self.assertEqual(
             self.ratings_form.fields['ratings']
-            .widget.attrs['id'] == 'rating_form_attr'
+            .widget.attrs['id'], 'rating_form_attr'
         )
 
     def test_ratingsform_with_validation_wo_input(self):

@@ -1,7 +1,7 @@
 """Products module model
 """
 from django.db import models
-from django.db.models import Avg
+from django.db.models import Avg, Count
 
 from authentication.models import CustomUser
 from supersub.models.category import Category
@@ -32,3 +32,10 @@ class Product(models.Model):
         if avg_rating:
             avg_rating =int(avg_rating)
         return avg_rating
+
+    def product_count(self):
+        product_counts = Product.objects.annotate(num_product=Count('ratings'))
+        product_count = product_counts[0].num_product
+        if product_count:
+            product_count =int(product_count)
+        return product_count

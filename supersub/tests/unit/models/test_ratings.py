@@ -64,3 +64,7 @@ class RatingsTest(TestCase):
     def test_prodcut_ratings_with_product(self):
         product = Product.objects.get(pk=1)
         self.assertEqual(product.product_rating(), int(2.5))
+    
+    def test_prodcut_count_with_product(self):
+        product = Product.objects.get(pk=1)
+        self.assertEqual(product.product_count(),2)

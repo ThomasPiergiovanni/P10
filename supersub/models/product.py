@@ -7,6 +7,7 @@ from authentication.models import CustomUser
 from supersub.models.category import Category
 
 
+
 class Product(models.Model):
     """Products class model. Category attribute is a foreign from Catgeory
     class.
@@ -34,8 +35,7 @@ class Product(models.Model):
         return avg_rating
 
     def product_count(self):
-        product_counts = Product.objects.annotate(num_product=Count('ratings'))
-        product_count = product_counts[0].num_product
-        if product_count:
-            product_count =int(product_count)
+        product_count = Product.objects.filter(
+            ratings__product_id=self.id
+        ).count()
         return product_count

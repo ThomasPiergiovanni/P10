@@ -24,7 +24,7 @@
                     {% for product in page_obj %}
                         <div class="col-lg-4 col-sm-6 text-center">
                             <div class="m-4 results-image">
-                                <a href="{% url 'supersub:product_detail' id_prod=product.id %}" class="ele_dark_href">
+                                <a href="{% url 'supersub:product_detail' id_prod=product.id %}" class="ele_dark_href" id="subsitute_product">
                                     <img style="max-height: 80px;"  src=" {{ product.image }} " alt="" />
                                     <p class="h5 m-1"> {{ product.name }} </p>
                                 </a>

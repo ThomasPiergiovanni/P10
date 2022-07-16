@@ -4,7 +4,7 @@
 
 This program is named "pur beurre". It's a web app that allow user to search for healthier or equaly ealthier food product than the one he or she usually consumes. User can also create n acoount and login in order to save its choice for later consultations.
 
-The programm is built on Django framework. Data used to provide the service are comming from th Open Food Facts API. The programm is hosted by Heroku cloud plateform.
+The programm is built on Django framework. Data used to provide the service are comming from th Open Food Facts API. The programm is hosted on a DigitalOcean droplet.
 
 You can check the app on  : http://167.99.209.111/
 

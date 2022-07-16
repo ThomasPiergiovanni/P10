@@ -6,7 +6,7 @@ This program is named "pur beurre". It's a web app that allow user to search for
 
 The programm is built on Django framework. Data used to provide the service are comming from th Open Food Facts API. The programm is hosted by Heroku cloud plateform.
 
-You can check the app on  : https://thpi-purbeurreapp.herokuapp.com
+You can check the app on  : http://167.99.209.111/
 
 The here below installation steps describes how to make the install on a dev and local environment.
 
